@@ -1,0 +1,7 @@
+.login-image {
+    background-image: linear-gradient(rgba(14, 17, 32, 0.062), rgba(14, 17, 32, 0.815)), url("../img/hero_gen_ai.jpg");
+}
+
+body {
+    overflow: hidden;
+}

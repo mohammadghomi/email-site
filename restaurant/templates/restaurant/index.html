@@ -1,0 +1,139 @@
+{% extends "restaurant/base.html" %}
+{% load static %}
+
+{% block content %}
+    <link type="text/css" rel="stylesheet" href="{% static 'restaurant/css/index.css' %}" />
+    <div class="wrapper" >
+        <div class="hero" >
+            {% include "restaurant/header.html" %}
+            <div class="vertical-align-hero">
+                <h1 class="welcome pt-3 mt-3 text-center">Welcome to My Restaurant</h1>
+            </div>
+        </div>
+        <div class="index-content mt-5 container mx-auto">
+            {% for meal in meals %}
+            <div class="row mx-2 pt-5" >
+                <div class="col px-0" >
+                    {% if meal.0 %}
+                    <div class="meal-content border mx-2 pb-2">
+                        <div>
+                            <a href="#" >
+                                <img class="meal-image" src="../../media/{{ meal.0.images }}"/>
+                            </a>
+                        </div>
+                        <div class="column-text-content px-3">
+                            <div class="pt-3 meal-name" >
+                                {{ meal.0.name }}
+                            </div>
+                            <div class="pt-2 meal-price" >
+                                <span>$</span>{{ meal.0.price }}
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="pt-2 meal-stock">
+                                        <span class="stock">In Stock:</span>{{ meal.0.stock }}
+                                    </div>
+                                </div>
+                                {% if user.is_authenticated %}
+                                <div class="col order-button-align">
+                                    <div class="order-button">
+                                        <a href="{% url 'order' pk=meal.0.id %}" class="btn btn-dark">Order</a>
+                                    </div>
+                                </div>
+                                {% else %}
+                                <div class="col order-button-align">
+                                    <div class="order-button">
+                                        <a href="{% url 'order' pk=meal.0.id %}" class="btn btn-dark" style="pointer-events: none;">Order</a>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                 <div class="col px-0" >
+                    {% if meal.1 %}
+                    <div class="meal-content border mx-2 pb-2">
+                        <div>
+                            <a href="#" >
+                                <img class="meal-image" src="../../media/{{ meal.1.images }}"/>
+                            </a>
+                        </div>
+                        <div class="column-text-content px-3">
+                            <div class="pt-3 meal-name" >
+                                {{ meal.1.name }}
+                            </div>
+                            <div class="pt-2 meal-price" >
+                                <span>$</span>{{ meal.1.price }}
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="pt-2 meal-stock">
+                                        <span class="stock">In Stock:</span>{{ meal.1.stock }}
+                                    </div>
+                                </div>
+                                {% if user.is_authenticated %}
+                                <div class="col order-button-align">
+                                    <div class="order-button">
+                                        <a href="{% url 'order' pk=meal.1.id %}" class="btn btn-dark">Order</a>
+                                    </div>
+                                </div>
+                                {% else %}
+                                <div class="col order-button-align">
+                                    <div class="order-button">
+                                        <a href="{% url 'order' pk=meal.1.id %}" class="btn btn-dark" style="pointer-events: none;">Order</a>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                 <div class="col px-0" >
+                    {% if meal.2 %}
+                    <div class="meal-content border mx-2 pb-2">
+                        <div>
+                            <a href="#" >
+                                <img class="meal-image" src="../../media/{{ meal.2.images }}"/>
+                            </a>
+                        </div>
+                        <div class="column-text-content px-3">
+                            <div class="pt-3 meal-name" >
+                                {{ meal.2.name }}
+                            </div>
+                            <div class="pt-2 meal-price" >
+                                <span>$</span>{{ meal.2.price }}
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="pt-2 meal-stock">
+                                        <span class="stock">In Stock:</span>{{ meal.2.stock }}
+                                    </div>
+                                </div>
+                                {% if user.is_authenticated %}
+                                <div class="col order-button-align">
+                                    <div class="order-button">
+                                        <a href="{% url 'order' pk=meal.2.id %}" class="btn btn-dark">Order</a>
+                                    </div>
+                                </div>
+                                {% else %}
+                                <div class="col order-button-align">
+                                    <div class="order-button">
+                                        <a href="{% url 'order' pk=meal.2.id %}" class="btn btn-dark" style="pointer-events: none;">Order</a>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock content %}
